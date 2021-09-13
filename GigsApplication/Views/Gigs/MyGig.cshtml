@@ -1,0 +1,78 @@
+﻿@model IEnumerable<GigsApplication.Core.Models.Gig>
+@{
+    ViewBag.Title = "MyGig";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Upcomming Gigs</h2>
+<ul class="gigs space-between">
+     
+
+@foreach (var item in Model)
+{
+    <li>
+        <div class="date">
+            <div class="month">
+                @item.DateTime.ToString("MMM")
+            </div>
+            <div class="day">
+                @item.DateTime.ToString("d ")
+            </div>
+        </div>
+        <div class="details">
+
+            <span class="artist">
+                @item.Venue
+            </span>
+
+            <span class="genre">
+                @item.Genre.Name
+            </span>
+            <div class="actions">
+                <a href="@Url.Action("Edit","Gigs" ,new { id=item.Id})">Edit</a>
+                <a href="#" class="js-cancel-gig" data-gig-id="@item.Id">Cancel</a>
+            </div>     
+        </div>
+    </li>
+}
+</ul>
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        $(".js-cancel-gig").click(function (e) {
+            var remover = $(e.target);
+            bootbox.dialog({
+                message: "Are you sure you want to cancel this gig?",
+                title: "Ensure",
+                buttons: {
+                    no: {
+                        label: "no",
+                        className: "btn-default",
+                        callback: function () {
+                           
+                        }
+                    },
+                    yes: {
+                        label: "yes",
+                        className: "btn-danger",
+                        callback: function () {
+                            $.ajax({
+                                url: "/api/gigs/" + remover.attr("data-gig-id"),
+                                method: "delete"
+                            }).done(function () {
+                                remover.parents("li").fadeOut(function () {
+                                    $(this).remove();
+                                });
+                            }).fail(function () {
+                                alert("Somthing Gone Wrong");
+                            });
+                        }
+                    }
+                }
+            });
+             
+        
+        });
+    });
+    </script>
+    }

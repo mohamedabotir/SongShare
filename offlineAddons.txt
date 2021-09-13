@@ -1,0 +1,9 @@
+-gigs i'am attending
+-artist i'am following
+-my upcommingGig(for artist)
+-update my upcomming gigs
+-cancel agig
+-notification for canceled gig
+-refactoring gig
+-refactoring notification feature
+

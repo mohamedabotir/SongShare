@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D0C38BC-659A-4B97-B6BD-9E89BD657A94}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GigsApplication</RootNamespace>
+    <AssemblyName>GigsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\net45\Ninject.Extensions.Conventions.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.2\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.2\lib\net45\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.0\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.WebApi.3.3.1\lib\net45\Ninject.Web.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Core\Dtos\GenreDto.cs" />
+    <Compile Include="Core\Dtos\GigDto.cs" />
+    <Compile Include="Controllers\Api\GigsController.cs" />
+    <Compile Include="Controllers\Api\AttendancesController.cs" />
+    <Compile Include="Controllers\Api\FollowingsController.cs" />
+    <Compile Include="Core\Dtos\NotificationDto.cs" />
+    <Compile Include="Controllers\Api\NotificationsController.cs" />
+    <Compile Include="Core\Dtos\UserDto.cs" />
+    <Compile Include="Controllers\GigsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Core\Dtos\AttendanceDto.cs" />
+    <Compile Include="Core\Dtos\FollowingDto.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\EntityConfiguration\AttendanceConfiguration.cs" />
+    <Compile Include="UnitOFWork\EntityConfiguration\FollowingConfiguration.cs" />
+    <Compile Include="UnitOFWork\EntityConfiguration\GenreConfiguration.cs" />
+    <Compile Include="UnitOFWork\EntityConfiguration\GigConfiguration.cs" />
+    <Compile Include="UnitOFWork\EntityConfiguration\UserNotificationConfiguration.cs" />
+    <Compile Include="UnitOFWork\EntityConfiguration\UserConfiguration.cs" />
+    <Compile Include="UnitOFWork\Migrations\202106102236523_initialModel.cs" />
+    <Compile Include="UnitOFWork\Migrations\202106102236523_initialModel.Designer.cs">
+      <DependentUpon>202106102236523_initialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202106102315518_Gig.cs" />
+    <Compile Include="UnitOFWork\Migrations\202106102315518_Gig.Designer.cs">
+      <DependentUpon>202106102315518_Gig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202106102328377_overrideMigrationAfterModified.cs" />
+    <Compile Include="UnitOFWork\Migrations\202106102328377_overrideMigrationAfterModified.Designer.cs">
+      <DependentUpon>202106102328377_overrideMigrationAfterModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202106151931560_Handle.cs" />
+    <Compile Include="UnitOFWork\Migrations\202106151931560_Handle.Designer.cs">
+      <DependentUpon>202106151931560_Handle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202106161211191_changeGigTableAddArtistAddandGenre.cs" />
+    <Compile Include="UnitOFWork\Migrations\202106161211191_changeGigTableAddArtistAddandGenre.Designer.cs">
+      <DependentUpon>202106161211191_changeGigTableAddArtistAddandGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202106161230106_changeGigTableAddArtistAddandGenre1.cs" />
+    <Compile Include="UnitOFWork\Migrations\202106161230106_changeGigTableAddArtistAddandGenre1.Designer.cs">
+      <DependentUpon>202106161230106_changeGigTableAddArtistAddandGenre1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107062339181_addNameToApplicationUser.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107062339181_addNameToApplicationUser.Designer.cs">
+      <DependentUpon>202107062339181_addNameToApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107062340080_addNameToApplicationUser1.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107062340080_addNameToApplicationUser1.Designer.cs">
+      <DependentUpon>202107062340080_addNameToApplicationUser1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071246328_addGenreToGig.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071246328_addGenreToGig.Designer.cs">
+      <DependentUpon>202107071246328_addGenreToGig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071255283_addGenreToGig1.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071255283_addGenreToGig1.Designer.cs">
+      <DependentUpon>202107071255283_addGenreToGig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071302025_addGenreToGig2.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071302025_addGenreToGig2.Designer.cs">
+      <DependentUpon>202107071302025_addGenreToGig2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071305537_addGenreToGig3.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071305537_addGenreToGig3.Designer.cs">
+      <DependentUpon>202107071305537_addGenreToGig3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071315550_12.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071315550_12.Designer.cs">
+      <DependentUpon>202107071315550_12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071325408_123.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071325408_123.Designer.cs">
+      <DependentUpon>202107071325408_123.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071327260_addGenre.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071327260_addGenre.Designer.cs">
+      <DependentUpon>202107071327260_addGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071340202_addGenre3.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071340202_addGenre3.Designer.cs">
+      <DependentUpon>202107071340202_addGenre3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071341010_addGenre4.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071341010_addGenre4.Designer.cs">
+      <DependentUpon>202107071341010_addGenre4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071342261_addGenre44.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071342261_addGenre44.Designer.cs">
+      <DependentUpon>202107071342261_addGenre44.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107071344012_addGenre334.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107071344012_addGenre334.Designer.cs">
+      <DependentUpon>202107071344012_addGenre334.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107082133180_addAttendanceTable.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107082133180_addAttendanceTable.Designer.cs">
+      <DependentUpon>202107082133180_addAttendanceTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107082137040_addAttendanceTable1.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107082137040_addAttendanceTable1.Designer.cs">
+      <DependentUpon>202107082137040_addAttendanceTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107082145350_addAttendanceTable2.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107082145350_addAttendanceTable2.Designer.cs">
+      <DependentUpon>202107082145350_addAttendanceTable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107092308401_addFolllowingTable.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107092308401_addFolllowingTable.Designer.cs">
+      <DependentUpon>202107092308401_addFolllowingTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107132126278_AddisCanceledFieldToGig.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107132126278_AddisCanceledFieldToGig.Designer.cs">
+      <DependentUpon>202107132126278_AddisCanceledFieldToGig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107140104420_addNotificationAndUserNotification.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107140104420_addNotificationAndUserNotification.Designer.cs">
+      <DependentUpon>202107140104420_addNotificationAndUserNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107262244118_newNotifications.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107262244118_newNotifications.Designer.cs">
+      <DependentUpon>202107262244118_newNotifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202107262250157_newNotifications1.cs" />
+    <Compile Include="UnitOFWork\Migrations\202107262250157_newNotifications1.Designer.cs">
+      <DependentUpon>202107262250157_newNotifications1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\Configuration.cs" />
+    <Compile Include="Core\ViewModels\AccountViewModels.cs" />
+    <Compile Include="UnitOFWork\ApplicationDbContext.cs" />
+    <Compile Include="Core\Models\ApplicationUser.cs" />
+    <Compile Include="Core\Models\Attendance.cs" />
+    <Compile Include="Core\Models\Following.cs" />
+    <Compile Include="Core\Models\Genre.cs" />
+    <Compile Include="Core\Models\Gig.cs" />
+    <Compile Include="Core\ViewModels\ManageViewModels.cs" />
+    <Compile Include="Core\Models\Notification.cs" />
+    <Compile Include="Core\Models\NotificationType.cs" />
+    <Compile Include="Core\Models\UserNotification.cs" />
+    <Compile Include="UnitOFWork\Repositories\AttendanceRepository.cs" />
+    <Compile Include="UnitOFWork\Repositories\FollowingRepository.cs" />
+    <Compile Include="UnitOFWork\Repositories\GenreRepository.cs" />
+    <Compile Include="UnitOFWork\Repositories\GigRepository.cs" />
+    <Compile Include="Core\Repositories\IAttendanceRepository.cs" />
+    <Compile Include="Core\Repositories\IFollowingRepository.cs" />
+    <Compile Include="Core\Repositories\IGenreRepository.cs" />
+    <Compile Include="Core\Repositories\IGigRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\INotificationRepository.cs" />
+    <Compile Include="UnitOFWork\Repositories\NotificationRepository.cs" />
+    <Compile Include="UnitOFWork\UnitOfWork.cs" />
+    <Compile Include="Core\ViewModels\FollowingViewModel.cs" />
+    <Compile Include="Core\ViewModels\GigDetailsViewModel.cs" />
+    <Compile Include="Core\ViewModels\HomeViewModel.cs" />
+    <Compile Include="Core\ViewModels\RegisterViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Core\ViewModels\FutureDate.cs" />
+    <Compile Include="Core\ViewModels\GigsViewModel.cs" />
+    <Compile Include="Core\ViewModels\ValidTime.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\artist\follow.js" />
+    <Content Include="Scripts\app\service\attendanceService.js" />
+    <Content Include="Scripts\app\Gig\gig.js" />
+    <Content Include="Scripts\app\service\followService.js" />
+    <Content Include="Scripts\bootbox.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\darkmode-js.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\underscore-min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\Gigs.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Gigs\GigForm.cshtml" />
+    <Content Include="Views\Gigs\Following.cshtml" />
+    <Content Include="Views\Gigs\MyGig.cshtml" />
+    <Content Include="Views\Gigs\details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Dtos\" />
+    <Folder Include="fonts\" />
+    <Folder Include="Models\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202106102236523_initialModel.resx">
+      <DependentUpon>202106102236523_initialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202106102315518_Gig.resx">
+      <DependentUpon>202106102315518_Gig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202106102328377_overrideMigrationAfterModified.resx">
+      <DependentUpon>202106102328377_overrideMigrationAfterModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202106151931560_Handle.resx">
+      <DependentUpon>202106151931560_Handle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202106161211191_changeGigTableAddArtistAddandGenre.resx">
+      <DependentUpon>202106161211191_changeGigTableAddArtistAddandGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202106161230106_changeGigTableAddArtistAddandGenre1.resx">
+      <DependentUpon>202106161230106_changeGigTableAddArtistAddandGenre1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107062339181_addNameToApplicationUser.resx">
+      <DependentUpon>202107062339181_addNameToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107062340080_addNameToApplicationUser1.resx">
+      <DependentUpon>202107062340080_addNameToApplicationUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071246328_addGenreToGig.resx">
+      <DependentUpon>202107071246328_addGenreToGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071255283_addGenreToGig1.resx">
+      <DependentUpon>202107071255283_addGenreToGig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071302025_addGenreToGig2.resx">
+      <DependentUpon>202107071302025_addGenreToGig2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071305537_addGenreToGig3.resx">
+      <DependentUpon>202107071305537_addGenreToGig3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071315550_12.resx">
+      <DependentUpon>202107071315550_12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071325408_123.resx">
+      <DependentUpon>202107071325408_123.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071327260_addGenre.resx">
+      <DependentUpon>202107071327260_addGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071340202_addGenre3.resx">
+      <DependentUpon>202107071340202_addGenre3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071341010_addGenre4.resx">
+      <DependentUpon>202107071341010_addGenre4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071342261_addGenre44.resx">
+      <DependentUpon>202107071342261_addGenre44.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107071344012_addGenre334.resx">
+      <DependentUpon>202107071344012_addGenre334.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107082133180_addAttendanceTable.resx">
+      <DependentUpon>202107082133180_addAttendanceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107082137040_addAttendanceTable1.resx">
+      <DependentUpon>202107082137040_addAttendanceTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107082145350_addAttendanceTable2.resx">
+      <DependentUpon>202107082145350_addAttendanceTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107092308401_addFolllowingTable.resx">
+      <DependentUpon>202107092308401_addFolllowingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107132126278_AddisCanceledFieldToGig.resx">
+      <DependentUpon>202107132126278_AddisCanceledFieldToGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107140104420_addNotificationAndUserNotification.resx">
+      <DependentUpon>202107140104420_addNotificationAndUserNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107262244118_newNotifications.resx">
+      <DependentUpon>202107262244118_newNotifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202107262250157_newNotifications1.resx">
+      <DependentUpon>202107262250157_newNotifications1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6739</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6739/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
