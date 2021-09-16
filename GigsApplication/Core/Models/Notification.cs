@@ -30,6 +30,7 @@ namespace GigsApplication.Core.Models
             Gig = gig;
             DateTime = DateTime.Now;
         }
+
         public static Notification CancelNotification(Gig gig)
         {
             return new Notification(NotificationType.GigCanceled, gig);

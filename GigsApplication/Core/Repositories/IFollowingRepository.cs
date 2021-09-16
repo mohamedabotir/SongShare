@@ -7,6 +7,7 @@ namespace GigsApplication.Core.Repositories
     {
         Following GetFollower(string followerId, string artistId);
         IEnumerable<Following> GetMyFollowing(string artistId);
+        IEnumerable<Following> GetMyFollowers(string artistId);
         void addFollow(Following follower);
         void removeFollow(Following follower);
     }

@@ -51,6 +51,14 @@
 
             <%
             _.each(notifications,function(notification){
+            if(notification.type == 3){
+            %>
+            <li>
+
+                <span class="highlight"><%=notification.gig.artist.name%></span> has create the gig at <%=notification.gig.venue%> at datetime <%= moment(notification.gig.dateTime).format("DD MMM yyyy HH:mm")%>
+            </li>
+            <%
+            }
             if(notification.type == 1){
             %>
             <li>

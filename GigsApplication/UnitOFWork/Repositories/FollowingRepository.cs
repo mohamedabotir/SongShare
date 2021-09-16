@@ -28,7 +28,14 @@ namespace GigsApplication.UnitOFWork.Repositories
                 Include(e => e.Follower).
                 Where(e => e.FollowerId == artistId);
         }
-
+        public IEnumerable<Following> GetMyFollowers(string artistId)
+        {
+            return
+                _context.Followings.
+               Include(e => e.Followee).
+               Include(e => e.Follower).
+               Where(e => e.FolloweeId == artistId);
+        }
         public void addFollow(Following follower)
         {
 
@@ -39,5 +46,7 @@ namespace GigsApplication.UnitOFWork.Repositories
         {
             _context.Followings.Remove(follower);
         }
+
+
     }
 }

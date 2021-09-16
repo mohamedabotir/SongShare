@@ -1,10 +1,9 @@
-﻿using GigsApplication.UnitOFWork;
+﻿using GigsApplication.Core;
+using GigsApplication.Core.Models;
+using GigsApplication.Core.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Web.Mvc;
-using GigsApplication.Core;
-using GigsApplication.Core.Models;
-using GigsApplication.Core.ViewModels;
 
 namespace GigsApplication.Controllers
 {
@@ -30,8 +29,9 @@ namespace GigsApplication.Controllers
         [Authorize]
         public ActionResult Following()
         {
-            var artists = unitOFWork._followingRepo.GetMyFollowing(User.Identity.GetUserId());
-
+            var userId = User.Identity.GetUserId();
+            var artists = unitOFWork._followingRepo.GetMyFollowing(userId);
+            var list = artists.ToList();
             var Following = new FollowingViewModel()
             {
                 followingArtist = artists
@@ -108,8 +108,15 @@ namespace GigsApplication.Controllers
                 Venue = gigsView.Venue,
                 DateTime = gigsView.getDateTime()
             };
+            var artists = unitOFWork._followingRepo.GetMyFollowers(User.Identity.GetUserId());
             unitOFWork._gigRepo.Add(gig);
+            var notification = Notification.CreateNotification(gig);
+            var list = artists.ToList();
+            foreach (var item in list)
+            {
+                item.Follower.Notify(notification);
 
+            }
             unitOFWork.complete();
             return RedirectToAction("MyGig");
         }

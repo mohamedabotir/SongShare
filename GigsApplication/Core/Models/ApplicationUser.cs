@@ -35,5 +35,9 @@ namespace GigsApplication.Core.Models
 
             UserNotifications.Add(userNotificaion);
         }
+        void NotifyCreation(Gig gig)
+        {
+
+        }
     }
 }

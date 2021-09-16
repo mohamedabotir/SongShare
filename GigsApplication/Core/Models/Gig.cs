@@ -39,6 +39,7 @@ namespace GigsApplication.Core.Models
             }
         }
 
+
         public void Update(string venue, DateTime dateTime, int genre)
         {
             var notification = Notification.UpdateNotification(this, DateTime, venue);
