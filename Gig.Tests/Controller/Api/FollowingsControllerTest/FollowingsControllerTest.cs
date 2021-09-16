@@ -58,5 +58,13 @@ namespace Gig.Tests.Controller.Api.FollowingsControllerTest
             });
             result.Should().BeOfType<BadRequestErrorMessageResult>();
         }
+        [TestMethod]
+        public void unfollow_isFollowing_badRequest()
+        {
+            var followings = new Following();
+            followingMock.Setup(e => e.GetFollower("3", "3")).Returns(followings);
+            var result = following.unFollow("1");
+            result.Should().BeOfType<NotFoundResult>();
+        }
     }
 }

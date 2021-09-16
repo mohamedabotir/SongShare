@@ -25,6 +25,7 @@ namespace GigsApplication.Controllers.Api
             var userId = User.Identity.GetUserId();
 
             var notifications = unitOfWork._notificationRepo.GetMyNotifications(userId);
+
             var notificationMap = new MapperConfiguration(cfg =>
            {
                cfg.CreateMap<ApplicationUser, UserDto>();
