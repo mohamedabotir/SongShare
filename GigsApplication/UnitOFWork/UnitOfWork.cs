@@ -6,7 +6,7 @@ namespace GigsApplication.UnitOFWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
         public IGigRepository _gigRepo { get; private set; }
         public INotificationRepository _notificationRepo { get; private set; }
         public IFollowingRepository _followingRepo { get; private set; }

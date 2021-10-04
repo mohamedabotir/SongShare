@@ -9,9 +9,9 @@ namespace GigsApplication.UnitOFWork.Repositories
 {
     public class GigRepository : IGigRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
-        public GigRepository(ApplicationDbContext context)
+        public GigRepository(IApplicationDbContext context)
         {
             this._context = context;
         }
@@ -44,8 +44,10 @@ namespace GigsApplication.UnitOFWork.Repositories
         {
             return
                 _context.Gigs.
-                Where(e => e.ArtistId == artistId && e.DateTime > System.DateTime.Now && !e.IsCanceled).
-                Include(e => e.Genre)
+                Where(e => e.ArtistId == artistId &&
+                e.DateTime > System.DateTime.Now &&
+                !e.IsCanceled).
+                Include(e => e.Genre).ToList();
                 ;
         }
 

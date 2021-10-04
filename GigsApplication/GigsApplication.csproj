@@ -366,6 +366,7 @@
     <Compile Include="Core\Repositories\IGigRepository.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\INotificationRepository.cs" />
+    <Compile Include="UnitOFWork\IApplicationDbContext.cs" />
     <Compile Include="UnitOFWork\Repositories\NotificationRepository.cs" />
     <Compile Include="UnitOFWork\UnitOfWork.cs" />
     <Compile Include="Core\ViewModels\FollowingViewModel.cs" />
