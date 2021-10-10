@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigsApplication", "GigsAppl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gig.Tests", "Gig.Tests\Gig.Tests.csproj", "{FCDD5BD5-8893-4340-91EB-28EE01975DF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gigs.IntegrationTests", "Gigs.IntegrationTests\Gigs.IntegrationTests.csproj", "{882241AA-8989-48D4-A763-4E91C5675F6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,23 +23,15 @@ Global
 		{FCDD5BD5-8893-4340-91EB-28EE01975DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCDD5BD5-8893-4340-91EB-28EE01975DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCDD5BD5-8893-4340-91EB-28EE01975DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{882241AA-8989-48D4-A763-4E91C5675F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{882241AA-8989-48D4-A763-4E91C5675F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{882241AA-8989-48D4-A763-4E91C5675F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{882241AA-8989-48D4-A763-4E91C5675F6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0F729E9-B22B-4E12-B2F6-E7D5424D199E}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://dev.azure.com/mohamedabdalsalam114
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = GigsApplication\\GigsApplication.csproj
-		SccProjectName1 = GigsApplication
-		SccLocalPath1 = GigsApplication
-		SccProjectUniqueName2 = Gig.Tests\\Gig.Tests.csproj
-		SccProjectName2 = Gig.Tests
-		SccLocalPath2 = Gig.Tests
 	EndGlobalSection
 EndGlobal

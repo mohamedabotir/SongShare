@@ -3,6 +3,7 @@ using GigsApplication.Core.Models;
 using GigsApplication.Core.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace GigsApplication.Controllers
@@ -85,7 +86,7 @@ namespace GigsApplication.Controllers
                 Date = gig.DateTime.ToString("dd MMM yyyy"),
                 Time = gig.DateTime.ToString("HH:mm"),
                 Genre = gig.GenreID,
-                Venue = gig.Venue
+                Venue = gig.Song
 
             };
             return View("GigForm", GigView);
@@ -93,7 +94,7 @@ namespace GigsApplication.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(GigsViewModel gigsView)
+        public ActionResult Create(GigsViewModel gigsView,HttpPostedFileBase sound)
         {
 
             if (!ModelState.IsValid)
@@ -101,13 +102,19 @@ namespace GigsApplication.Controllers
                 gigsView.Genres = unitOFWork._genreRepo.GetGenre();
                 return View("GigForm", gigsView);
             }
+            gigsView.SongMimeType = sound.ContentType;
+            gigsView.SongData = new byte[sound.ContentLength];
+            sound.InputStream.Read(gigsView.SongData, 0, sound.ContentLength);
+
             var gig = new Gig
             {
                 ArtistId = User.Identity.GetUserId(),
                 GenreID = gigsView.Genre,
-                Venue = gigsView.Venue,
-                DateTime = gigsView.getDateTime()
-            };
+                Song = gigsView.Venue,
+                DateTime = gigsView.getDateTime(),
+                SongMimeType = gigsView.SongMimeType,
+                SongData = gigsView.SongData
+                 };
             var artists = unitOFWork._followingRepo.GetMyFollowers(User.Identity.GetUserId());
             unitOFWork._gigRepo.Add(gig);
             var notification = Notification.CreateNotification(gig);

@@ -546,7 +546,6 @@ C:\SongShare\GigsApplication\bin\Microsoft.Owin.Security.Twitter.xml
 C:\SongShare\GigsApplication\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\SongShare\GigsApplication\bin\Microsoft.Owin.Security.OAuth.xml
 C:\SongShare\GigsApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csprojAssemblyReference.cache
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.initialModel.resources
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.Gig.resources
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.overrideMigrationAfterModified.resources
@@ -579,3 +578,6 @@ C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csproj.CoreCompileInputs.
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csproj.CopyComplete
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.dll
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.pdb
+C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csprojAssemblyReference.cache
+C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.VenueToSong.resources
+C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.addaudioFileField.resources

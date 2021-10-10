@@ -32,16 +32,19 @@
             <div class="details">
 
                 <span class="artist">
-                    <a href="/gigs/details/@item.Id">@item.Artist.name</a> 
+                    <a href="/gigs/details/@item.Id">@item.Song</a>
                     @if (item.IsCanceled)
                     {
                         <span class="label label-warning">Canceled</span>
                     }
-                    
+
                 </span>
 
                 <span class="genre">
                     @item.Genre.Name
+                </span>
+                <span class="publisher">
+                   By @item.Artist.name
                 </span>
                 @if (Model.showActions && !item.IsCanceled)
                 {

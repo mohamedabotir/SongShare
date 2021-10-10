@@ -344,6 +344,14 @@
     <Compile Include="UnitOFWork\Migrations\202107262250157_newNotifications1.Designer.cs">
       <DependentUpon>202107262250157_newNotifications1.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnitOFWork\Migrations\202110092322101_VenueToSong.cs" />
+    <Compile Include="UnitOFWork\Migrations\202110092322101_VenueToSong.Designer.cs">
+      <DependentUpon>202110092322101_VenueToSong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202110100005387_add-audioFileField.cs" />
+    <Compile Include="UnitOFWork\Migrations\202110100005387_add-audioFileField.Designer.cs">
+      <DependentUpon>202110100005387_add-audioFileField.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnitOFWork\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="UnitOFWork\ApplicationDbContext.cs" />
@@ -452,11 +460,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Dtos\" />
-    <Folder Include="fonts\" />
-    <Folder Include="Models\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
@@ -552,6 +555,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UnitOFWork\Migrations\202107262250157_newNotifications1.resx">
       <DependentUpon>202107262250157_newNotifications1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202110092322101_VenueToSong.resx">
+      <DependentUpon>202110092322101_VenueToSong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202110100005387_add-audioFileField.resx">
+      <DependentUpon>202110100005387_add-audioFileField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,7 +10,7 @@ namespace GigsApplication.UnitOFWork.EntityConfiguration
             Property(e => e.ArtistId)
                  .IsRequired();
 
-            Property(e => e.Venue)
+            Property(e => e.Song)
                   .IsRequired()
                   .HasMaxLength(255);
 
@@ -18,6 +18,10 @@ namespace GigsApplication.UnitOFWork.EntityConfiguration
                  .IsRequired();
             HasMany(g => g.Attendences)
                 .WithRequired(a => a.Gig).WillCascadeOnDelete(false);
+            Property(e => e.SongData)
+                .IsRequired();
+            Property(e => e.SongMimeType)
+                .IsRequired();
         }
     }
 }

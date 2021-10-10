@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using FluentAssertions;
 using Gig.Tests.Extensions;
+using GigsApplication.UnitOFWork;
 using GigsApplication.UnitOFWork.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

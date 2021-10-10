@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace GigsApplication.Core.Models
 {
@@ -15,7 +17,7 @@ namespace GigsApplication.Core.Models
         public DateTime DateTime { get; set; }
 
 
-        public string Venue { get; set; }
+        public string Song { get; set; }
 
         public Genre Genre { get; set; }
 
@@ -25,7 +27,10 @@ namespace GigsApplication.Core.Models
         {
             Attendences = new Collection<Attendance>();
         }
-
+       
+        public byte[] SongData { set; get; }
+       
+        public string SongMimeType { set; get; }
         public void Cancel()
         {
             this.IsCanceled = true;
@@ -40,11 +45,11 @@ namespace GigsApplication.Core.Models
         }
 
 
-        public void Update(string venue, DateTime dateTime, int genre)
+        public void Update(string song, DateTime dateTime, int genre)
         {
-            var notification = Notification.UpdateNotification(this, DateTime, venue);
+            var notification = Notification.UpdateNotification(this, DateTime, Song);
 
-            Venue = venue;
+            Song = song;
             GenreID = genre;
             DateTime = dateTime;
             foreach (var attendee in this.Attendences.Select(e => e.Attendee))

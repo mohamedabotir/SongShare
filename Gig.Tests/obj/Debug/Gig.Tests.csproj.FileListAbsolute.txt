@@ -410,7 +410,6 @@ C:\SongShare\Gig.Tests\bin\Debug\GigsApplication.pdb
 C:\SongShare\Gig.Tests\bin\Debug\GigsApplication.dll.config
 C:\SongShare\Gig.Tests\bin\Debug\AutoMapper.xml
 C:\SongShare\Gig.Tests\bin\Debug\Castle.Core.xml
-C:\SongShare\Gig.Tests\bin\Debug\EntityFramework.xml
 C:\SongShare\Gig.Tests\bin\Debug\FluentAssertions.pdb
 C:\SongShare\Gig.Tests\bin\Debug\FluentAssertions.xml
 C:\SongShare\Gig.Tests\bin\Debug\FluentAssertions.Core.pdb

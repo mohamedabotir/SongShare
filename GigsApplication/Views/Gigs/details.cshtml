@@ -19,7 +19,7 @@
 
  }
 </h2>
-<p> Performing at @Model.gigs.Venue on @Model.gigs.DateTime.ToString("d MMM") at @Model.gigs.DateTime.ToString("HH:mm")</p>
+<p>  @Model.gigs.Song @(@Model.gigs.DateTime < DateTime.Now ?"Published" :"Will Publish" ) @Model.gigs.DateTime.ToString("d MMM")  at @Model.gigs.DateTime.ToString("HH:mm")</p>
 
 @if (User.Identity.IsAuthenticated && Model.IsAttending) {
 <p> You will attend this gig have a nice time </p>

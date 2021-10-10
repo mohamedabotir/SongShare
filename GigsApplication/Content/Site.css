@@ -125,6 +125,11 @@ border-radius : 8px;
         .gigs > li .details .genre {
           font-size : 18px;
         }
+        .gigs > li .details .publisher {
+        
+        display:block;
+        font-size:10px;
+        }
 .space-between{
 margin-top : 40px;
 }

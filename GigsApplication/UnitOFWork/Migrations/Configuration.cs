@@ -4,12 +4,12 @@ namespace GigsApplication.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"UnitOFWork/Migrations";
+            MigrationsDirectory = @"UnitOFWork\Migrations";
         }
 
         protected override void Seed(ApplicationDbContext context)

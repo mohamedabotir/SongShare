@@ -23,7 +23,7 @@ namespace GigsApplication.Controllers
                 upCommingGigs = upCommingGigs.Where(
                     g => g.Artist.name.Contains(query) ||
                     g.Genre.Name.Contains(query) ||
-                    g.Venue.Contains(query)
+                    g.Song.Contains(query)
                 );
             }
             var userId = User.Identity.GetUserId();
