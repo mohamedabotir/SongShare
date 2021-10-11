@@ -19,6 +19,12 @@
 
  }
 </h2>
+@if (Model.gigs.DateTime <= DateTime.Now) {
+
+<audio controls>
+<source src="@Url.Action("getSound",new {soundId=Model.gigs.Id })" type="audio/mpeg"/>
+</audio>
+}
 <p>  @Model.gigs.Song @(@Model.gigs.DateTime < DateTime.Now ?"Published" :"Will Publish" ) @Model.gigs.DateTime.ToString("d MMM")  at @Model.gigs.DateTime.ToString("HH:mm")</p>
 
 @if (User.Identity.IsAuthenticated && Model.IsAttending) {

@@ -178,6 +178,18 @@ namespace GigsApplication.Controllers
             }
             return View(gig);
         }
+        public FileContentResult getSound(int soundId) {
+            var record = unitOFWork._gigRepo.GetGig(soundId);
+            if (record != null)
+            {
+                if (record.SongData.Length == 0)
+                    return null;
+                return File(record.SongData, record.SongMimeType);
+
+            }
+            else
+                return null;
+        }
     }
 
 
