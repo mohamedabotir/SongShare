@@ -1,17 +1,18 @@
 ﻿@model GigsApplication.Core.ViewModels.HomeViewModel
-@{
+ @{
     ViewBag.Title = Model.Heading;
+
 }
 <h1>@Model.Heading</h1>
 @using (Html.BeginForm("search", "Gigs"))
 {
     <div class="form-group">
-     <div class="input-group" id="searchTerm" >
-         @Html.TextBoxFor(e => e.Search,new {@class="form-control", placeholder="Search by artist ,genre ..."})
-         <span class="input-group-addon">
-             <i class="glyphicon glyphicon-search"></i>
-         </span>
-     </div>
+        <div class="input-group" id="searchTerm">
+            @Html.TextBoxFor(e => e.Search, new { @class = "form-control", placeholder = "Search by artist ,genre ..." })
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+        </div>
 
     </div>
 }
@@ -44,7 +45,7 @@
                     @item.Genre.Name
                 </span>
                 <span class="publisher">
-                   By @item.Artist.name
+                    By @item.Artist.name
                 </span>
                 @if (Model.showActions && !item.IsCanceled)
                 {
@@ -61,8 +62,8 @@
     <script>
         $(document).ready(function () {
 
-           gig.attendGig("#gigs");
-            
+            gig.attendGig("#gigs");
+
         });
     </script>
 }

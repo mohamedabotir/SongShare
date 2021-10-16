@@ -14,10 +14,13 @@ namespace GigsApplication.Controllers
         {
             this.unitOfWork = unitOfWork;
         }
-        public ActionResult Index(string query = null)
+
+        public ActionResult Index(string query = null,bool isFuture= false)
         {
             var upCommingGigs = unitOfWork.
-                _gigRepo.GetAllAvailableGigsWithArtistAndGenre();
+                _gigRepo.GetAllAvailableGigsWithArtistAndGenre(isFuture); 
+             
+             
             if (!String.IsNullOrWhiteSpace(query))
             {
                 upCommingGigs = upCommingGigs.Where(
@@ -35,11 +38,14 @@ namespace GigsApplication.Controllers
             {
                 upCommingGigs = upCommingGigs,
                 showActions = User.Identity.IsAuthenticated,
-                Heading = "Availables Gigs",
+                Heading = isFuture?"Upcoming Share":"Availables Gigs",
                 Search = query,
                 attendances = attendances
             };
-            return View("Gigs", viewModel);
+            return View("Gigs",  viewModel );
+        }
+        public ActionResult ScheduledShare() {
+          return  RedirectToAction("Index", new {  isFuture = true });
         }
 
         public ActionResult About()

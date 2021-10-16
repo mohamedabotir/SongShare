@@ -51,14 +51,20 @@ namespace GigsApplication.UnitOFWork.Repositories
                 ;
         }
 
-        public IEnumerable<Gig> GetAllAvailableGigsWithArtistAndGenre()
+        public IEnumerable<Gig> GetAllAvailableGigsWithArtistAndGenre(bool isFuture)
         {
-            return
-                _context.Gigs.
+            var query = _context.Gigs.
                     Include(e => e.Artist)
-                    .Include(e => e.Genre)
-                    .Where(g => g.DateTime > DateTime.Now && !g.IsCanceled);
-            ;
+                    .Include(e => e.Genre);
+            if (isFuture)
+            return
+                
+                    query.Where(g => g.DateTime >= DateTime.Now && !g.IsCanceled);
+            else
+                return
+
+                   query.Where(g => g.DateTime < DateTime.Now && !g.IsCanceled);
+
         }
 
         public Gig CancelGig(string userId, int gigId)

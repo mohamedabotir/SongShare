@@ -11,7 +11,7 @@ namespace GigsApplication.Core.Repositories
         Gig GetGigWithArtistAndGenre(int id);
         Gig GetGigWithAttendances(int gigId);
         IEnumerable<Gig> GetMyGigsWithGenreByArtist(string artistId);
-        IEnumerable<Gig> GetAllAvailableGigsWithArtistAndGenre();
+        IEnumerable<Gig> GetAllAvailableGigsWithArtistAndGenre(bool isFuture);
         Gig CancelGig(string userId, int gigId);
     }
 }
