@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  gigsapplication:
+    image: ${DOCKER_REGISTRY-}gigsapplication
+    build:
+      context: .\GigsApplication
+      dockerfile: Dockerfile

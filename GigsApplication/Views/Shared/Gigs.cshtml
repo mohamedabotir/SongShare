@@ -47,11 +47,12 @@
                 <span class="publisher">
                     By @item.Artist.name
                 </span>
-                @if (Model.showActions && !item.IsCanceled)
-                {
-                    <button data-gig-id="@item.Id" class="btn @(Model.attendances.Contains(item.Id)?"btn-info" : "btn-default")   btn-sm pull-right js-toggle-attendance">
-                        Atttend?
-                    </button>
+                @if (Model.showActions && !item.IsCanceled &&item.DateTime>DateTime.Now)
+                        {
+                            var attendanceStatus = Model.attendances.Contains(item.Id);
+            <button data-gig-id="@item.Id" class="btn @(attendanceStatus?"btn-info" : "btn-default")   btn-sm pull-right js-toggle-attendance">
+                @(attendanceStatus?"Notified":"GetNotification+")
+            </button>
                 }
             </div>
         </li>

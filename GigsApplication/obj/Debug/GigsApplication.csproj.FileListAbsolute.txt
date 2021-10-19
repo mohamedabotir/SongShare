@@ -575,9 +575,8 @@ C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.newNotificatio
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.newNotifications1.resources
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csproj.GenerateResource.cache
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csproj.CoreCompileInputs.cache
-C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csproj.CopyComplete
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.dll
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.pdb
-C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csprojAssemblyReference.cache
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.VenueToSong.resources
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.addaudioFileField.resources
+C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csproj.AssemblyReference.cache

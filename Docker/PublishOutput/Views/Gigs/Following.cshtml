@@ -1,0 +1,11 @@
+﻿@model GigsApplication.Core.ViewModels.FollowingViewModel
+@{
+    ViewBag.Title = "Following";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Followee</h2>
+@foreach (var item in Model.followingArtist)
+{
+    <p>@item.Followee.name</p>
+}

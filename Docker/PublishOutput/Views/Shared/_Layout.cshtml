@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Open+Sans:wght@400;700&family=Source+Sans+Pro:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    <li>@Html.ActionLink("Add a Gig", "Create", "Gigs")</li>
+                    <li>@Html.ActionLink("Scheduled Share", "ScheduledShare", "Home")</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script type="text/x-template" id="notification-template">
+        <ul class="notifications">
+
+
+            <%
+            _.each(notifications,function(notification){
+            if(notification.type == 3){
+            %>
+            <li>
+
+                <span class="highlight"><%=notification.gig.artist.name%></span> has create the gig at <%=notification.gig.venue%> at datetime <%= moment(notification.gig.dateTime).format("DD MMM yyyy HH:mm")%>
+            </li>
+            <%
+            }
+            if(notification.type == 1){
+            %>
+            <li>
+
+                <span class="highlight"><%=notification.gig.artist.name%></span> has canceled the gig at <%=notification.gig.venue%> at datetime <%= moment(notification.gig.dateTime).format("DD MMM yyyy HH:mm")%>
+            </li>
+            <%
+            }
+            else if (notification.type == 2) {
+            var changes=[];
+            var originalValues=[];
+            var newValues=[];
+            if(notification.originalVenue != notification.gig.venue){
+            changes.push('venue');
+            originalValues.push(notification.originalVenue);
+            newValues.push(notification.gig.venue);
+            }
+            if(notification.OriginalDateTime != notification.gig.dateTime){
+            changes.push('date/time');
+            originalValues.push(moment(notification.originalDateTime).format("DD MMM yyyy HH:mm"));
+            newValues.push(moment(notification.gig.dateTime).format("DD MMM yyyy HH:mm"));
+            }
+
+            %>
+            <li><span class="highlight"><%=  notification.gig.artist.name%> </span> has changed the <%=changes.join(' and ')%> of the gig from <%=originalValues.join('/')%> to <%=newValues.join('/')%> </li>
+            <%
+            }
+
+            })
+            %>
+        </ul>
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("/api/notifications", function (notifications) {
+              
+                $(".js-notification-count")
+                    .text(notifications.length)
+                    .removeClass("hidden")
+                    .addClass("animate__bounceIn");
+                $(".notfications").popover({
+                    html: true,
+                    title: "Notifications",
+                    content: function () {
+                        var compile = _.template($("#notification-template").html());
+                        return compile({ notifications: notifications });
+
+                    },
+                    placement: "bottom",
+
+                }).on("show.bs.popover", function () {
+                    $.post("/api/notifications/markAsRead").done(function () {
+                        $(".js-notification-count").text("").addClass("hide");
+                    });
+                    });
+            });
+            
+        });
+
+        function addDarkmodeWidget() {
+            new Darkmode().showWidget();
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+</body>
+
+</html>

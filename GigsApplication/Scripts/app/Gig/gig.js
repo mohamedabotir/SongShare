@@ -14,7 +14,7 @@
     };
 
     var done = function () {
-        var text = (button.text() == "Going") ? "Going?" : "Going";
+        var text = (button.text() == "GetNotification+") ? "GetNotification?" : "notified";
         button.toggleClass("btn-info").toggleClass("btn-default").text(text);
     };
     var fail = function () {

@@ -1,0 +1,69 @@
+﻿@model GigsApplication.Core.ViewModels.HomeViewModel
+ @{
+    ViewBag.Title = Model.Heading;
+
+}
+<h1>@Model.Heading</h1>
+@using (Html.BeginForm("search", "Gigs"))
+{
+    <div class="form-group">
+        <div class="input-group" id="searchTerm">
+            @Html.TextBoxFor(e => e.Search, new { @class = "form-control", placeholder = "Search by artist ,genre ..." })
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+        </div>
+
+    </div>
+}
+<ul id="gigs" class="gigs space-between">
+
+
+    @foreach (var item in Model.upCommingGigs)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @item.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @item.DateTime.ToString("d ")
+                </div>
+            </div>
+            <div class="details">
+
+                <span class="artist">
+                    <a href="/gigs/details/@item.Id">@item.Song</a>
+                    @if (item.IsCanceled)
+                    {
+                        <span class="label label-warning">Canceled</span>
+                    }
+
+                </span>
+
+                <span class="genre">
+                    @item.Genre.Name
+                </span>
+                <span class="publisher">
+                    By @item.Artist.name
+                </span>
+                @if (Model.showActions && !item.IsCanceled)
+                {
+                    <button data-gig-id="@item.Id" class="btn @(Model.attendances.Contains(item.Id)?"btn-info" : "btn-default")   btn-sm pull-right js-toggle-attendance">
+                        Atttend?
+                    </button>
+                }
+            </div>
+        </li>
+    }
+</ul>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            gig.attendGig("#gigs");
+
+        });
+    </script>
+}

@@ -1,0 +1,33 @@
+#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
+#For more information, please see http://aka.ms/containercompat 
+
+#FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2016
+#ARG source
+#WORKDIR /inetpub/wwwroot
+#COPY ${source:-obj/Docker/publish} .
+# syntax=docker/dockerfile:1
+  #FROM mcr.microsoft.com/dotnet/aspnet:5.0
+  #COPY ${source:-obj/Docker/publish} .
+  #WORKDIR /inetpub/wwwroot
+  #ENTRYPOINT ["dotnet", "GigsApplication.dll"]
+
+#FROM mcr.microsoft.com/dotnet/aspnet:5.0
+#ARG source
+#WORKDIR /inetpub/wwwroot
+#COPY ${source:-obj/Docker/publish} .
+# syntax=docker/dockerfile:1
+# syntax=docker/dockerfile:1
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
+WORKDIR /app
+
+
+
+# Copy everything else and build
+COPY /gigsapplication.
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:3.1
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "gigsapplication.dll"]
