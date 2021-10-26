@@ -7,5 +7,6 @@ namespace GigsApplication.Core.ViewModels
         public Gig gigs { set; get; }
         public bool IsAttending { set; get; }
         public bool IsFollowing { set; get; }
+        public bool IsLoved { get; set; }
     }
 }

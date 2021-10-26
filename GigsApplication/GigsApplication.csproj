@@ -218,6 +218,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\LoveController.cs" />
     <Compile Include="Core\Dtos\GenreDto.cs" />
     <Compile Include="Core\Dtos\GigDto.cs" />
     <Compile Include="Controllers\Api\GigsController.cs" />
@@ -231,6 +232,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Core\Dtos\AttendanceDto.cs" />
     <Compile Include="Core\Dtos\FollowingDto.cs" />
+    <Compile Include="Core\Models\Love.cs" />
+    <Compile Include="Core\Repositories\ILove.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -238,6 +241,7 @@
     <Compile Include="UnitOFWork\EntityConfiguration\FollowingConfiguration.cs" />
     <Compile Include="UnitOFWork\EntityConfiguration\GenreConfiguration.cs" />
     <Compile Include="UnitOFWork\EntityConfiguration\GigConfiguration.cs" />
+    <Compile Include="UnitOFWork\EntityConfiguration\LoveConfiguration.cs" />
     <Compile Include="UnitOFWork\EntityConfiguration\UserNotificationConfiguration.cs" />
     <Compile Include="UnitOFWork\EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="UnitOFWork\Migrations\202106102236523_initialModel.cs" />
@@ -356,6 +360,14 @@
     <Compile Include="UnitOFWork\Migrations\202110100005387_add-audioFileField.Designer.cs">
       <DependentUpon>202110100005387_add-audioFileField.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnitOFWork\Migrations\202110252309025_addLoveFieldGig.cs" />
+    <Compile Include="UnitOFWork\Migrations\202110252309025_addLoveFieldGig.Designer.cs">
+      <DependentUpon>202110252309025_addLoveFieldGig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOFWork\Migrations\202110261407591_modifyLove.cs" />
+    <Compile Include="UnitOFWork\Migrations\202110261407591_modifyLove.Designer.cs">
+      <DependentUpon>202110261407591_modifyLove.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnitOFWork\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="UnitOFWork\ApplicationDbContext.cs" />
@@ -379,6 +391,7 @@
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\INotificationRepository.cs" />
     <Compile Include="UnitOFWork\IApplicationDbContext.cs" />
+    <Compile Include="UnitOFWork\Repositories\LoveRepository.cs" />
     <Compile Include="UnitOFWork\Repositories\NotificationRepository.cs" />
     <Compile Include="UnitOFWork\UnitOfWork.cs" />
     <Compile Include="Core\ViewModels\FollowingViewModel.cs" />
@@ -397,15 +410,21 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\1singleHeart.PNG" />
+    <Content Include="Content\images\1singleHeartmodi.png" />
+    <Content Include="Content\images\heart.png" />
+    <Content Include="Content\images\singleHeart.PNG" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\artist\follow.js" />
+    <Content Include="Scripts\app\user\love.js" />
     <Content Include="Scripts\app\service\attendanceService.js" />
     <Content Include="Scripts\app\Gig\gig.js" />
     <Content Include="Scripts\app\service\followService.js" />
+    <Content Include="Scripts\app\service\loveService.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -570,6 +589,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UnitOFWork\Migrations\202110100005387_add-audioFileField.resx">
       <DependentUpon>202110100005387_add-audioFileField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202110252309025_addLoveFieldGig.resx">
+      <DependentUpon>202110252309025_addLoveFieldGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202110261407591_modifyLove.resx">
+      <DependentUpon>202110261407591_modifyLove.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

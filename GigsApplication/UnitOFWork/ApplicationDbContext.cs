@@ -13,6 +13,7 @@ namespace GigsApplication.UnitOFWork
         public DbSet<Following> Followings { get; set; }
         public DbSet<UserNotification> UserNotifications { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Love> Loves { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -36,6 +37,7 @@ namespace GigsApplication.UnitOFWork
             modelBuilder.Configurations.Add(new FollowingConfiguration());
 
             modelBuilder.Configurations.Add(new AttendanceConfiguration());
+            modelBuilder.Configurations.Add(new LoveConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -3,37 +3,53 @@
     ViewBag.Title = "details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    bool status = User.Identity.IsAuthenticated;
+}
 
 <h2>
     @Model.gigs.Artist.name
- @if (User.Identity.IsAuthenticated) {
-     if (Model.IsFollowing) {
-         <button class="btn btn-info js-toggle-follow" data-user-id="@Model.gigs.ArtistId">Following</button>
-     }
-     else
-     {
-         <button class="btn btn-default js-toggle-follow" data-user-id="@Model.gigs.ArtistId">Follow</button>
+    @if (status)
+    {
+        if (Model.IsFollowing)
+        {
+            <button class="btn btn-info js-toggle-follow" data-user-id="@Model.gigs.ArtistId">Following</button>
+        }
+        else
+        {
+            <button class="btn btn-default js-toggle-follow" data-user-id="@Model.gigs.ArtistId">Follow</button>
 
 
-     }
+        }
 
- }
+    }
 </h2>
-@if (Model.gigs.DateTime <= DateTime.Now) {
 
-<audio controls>
-<source src="@Url.Action("getSound",new {soundId=Model.gigs.Id })" type="audio/mpeg"/>
-</audio>
+@if (Model.gigs.DateTime <= DateTime.Now)
+{
+
+    <audio controls>
+        <source src="@Url.Action("getSound",new {soundId=Model.gigs.Id })" type="audio/mpeg" />
+    </audio>
+    if (status)
+    {<div class="heart-container">
+    <span class="@(Model.IsLoved?"single-heart-active ":"heart ") js-toggle-love" data-audio-id="@Model.gigs.Id"></span>
+</div>
+    }
 }
 <p>  @Model.gigs.Song @(@Model.gigs.DateTime < DateTime.Now ?"Published" :"Will Publish" ) @Model.gigs.DateTime.ToString("d MMM")  at @Model.gigs.DateTime.ToString("HH:mm")</p>
 
-@if (User.Identity.IsAuthenticated && Model.IsAttending) {
-<p> You will attend this gig have a nice time </p>
+@if (User.Identity.IsAuthenticated && Model.IsAttending)
+{
+    <p> You will attend this gig have a nice time </p>
 }
 @section Scripts{
     <script>
+       
         $(document).ready(function () {
+            loveAudio.loveClick();
             followArtist.follow();
         });
     </script>
-    }
+     
+}

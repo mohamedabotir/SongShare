@@ -50,7 +50,6 @@ C:\SongShare\Gigs.IntegrationTests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 C:\SongShare\Gigs.IntegrationTests\bin\Debug\Microsoft.Owin.Security.xml
 C:\SongShare\Gigs.IntegrationTests\bin\Debug\System.Web.Http.xml
 C:\SongShare\Gigs.IntegrationTests\bin\Debug\Newtonsoft.Json.xml
-C:\SongShare\Gigs.IntegrationTests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\SongShare\Gigs.IntegrationTests\bin\Debug\AutoMapper.xml
 C:\SongShare\Gigs.IntegrationTests\bin\Debug\Ninject.Web.Common.xml
 C:\SongShare\Gigs.IntegrationTests\bin\Debug\Ninject.xml
@@ -66,8 +65,8 @@ C:\SongShare\Gigs.IntegrationTests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\SongShare\Gigs.IntegrationTests\bin\Debug\System.Web.Razor.xml
 C:\SongShare\Gigs.IntegrationTests\bin\Debug\Ninject.Extensions.Factory.xml
 C:\SongShare\Gigs.IntegrationTests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\SongShare\Gigs.IntegrationTests\obj\Debug\Gigs.IntegrationTests.csprojAssemblyReference.cache
 C:\SongShare\Gigs.IntegrationTests\obj\Debug\Gigs.IntegrationTests.csproj.CoreCompileInputs.cache
 C:\SongShare\Gigs.IntegrationTests\obj\Debug\Gigs.IntegrationTests.csproj.CopyComplete
 C:\SongShare\Gigs.IntegrationTests\obj\Debug\Gigs.IntegrationTests.dll
 C:\SongShare\Gigs.IntegrationTests\obj\Debug\Gigs.IntegrationTests.pdb
+C:\SongShare\Gigs.IntegrationTests\obj\Debug\Gigs.IntegrationTests.csproj.AssemblyReference.cache

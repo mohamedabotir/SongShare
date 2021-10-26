@@ -313,7 +313,6 @@ C:\Users\Threading\source\repos\GigsApplication\SongShare\Gig.Tests\obj\Debug\Gi
 C:\Users\Threading\source\repos\GigsApplication\SongShare\Gig.Tests\obj\Debug\Gig.Tests.csproj.CopyComplete
 C:\Users\Threading\source\repos\GigsApplication\SongShare\Gig.Tests\obj\Debug\Gig.Tests.dll
 C:\Users\Threading\source\repos\GigsApplication\SongShare\Gig.Tests\obj\Debug\Gig.Tests.pdb
-C:\SongShare\Gig.Tests\obj\Debug\Gig.Tests.csprojAssemblyReference.cache
 C:\SongShare\Gig.Tests\obj\Debug\Gig.Tests.csproj.CoreCompileInputs.cache
 C:\SongShare\Gig.Tests\obj\Debug\Gig.Tests.dll
 C:\SongShare\Gig.Tests\obj\Debug\Gig.Tests.pdb
@@ -468,3 +467,4 @@ C:\SongShare\Gig.Tests\bin\Debug\System.Web.Razor.xml
 C:\SongShare\Gig.Tests\bin\Debug\Ninject.Extensions.Factory.xml
 C:\SongShare\Gig.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\SongShare\Gig.Tests\obj\Debug\Gig.Tests.csproj.CopyComplete
+C:\SongShare\Gig.Tests\obj\Debug\Gig.Tests.csproj.AssemblyReference.cache

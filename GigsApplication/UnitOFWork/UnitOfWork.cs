@@ -12,6 +12,9 @@ namespace GigsApplication.UnitOFWork
         public IFollowingRepository _followingRepo { get; private set; }
         public IAttendanceRepository _attendanceRepo { get; }
         public IGenreRepository _genreRepo { get; private set; }
+
+        public ILove _loveRepo { get; private set; }
+
         public UnitOfWork(ApplicationDbContext context)
         {
             _gigRepo = new GigRepository(context);
@@ -19,6 +22,7 @@ namespace GigsApplication.UnitOFWork
             _followingRepo = new FollowingRepository(context);
             _genreRepo = new GenreRepository(context);
             _notificationRepo = new NotificationRepository(context);
+            _loveRepo = new LoveRepository(context);
             _context = context;
         }
         public void complete()

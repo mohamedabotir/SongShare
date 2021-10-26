@@ -173,7 +173,7 @@ namespace GigsApplication.Controllers
                 var userId = User.Identity.GetUserId();
                 gig.IsAttending = unitOFWork._attendanceRepo.GetAttendance(id, userId) != null;
                 gig.IsFollowing = unitOFWork._followingRepo.GetFollower(userId, gigDetails.ArtistId) != null;
-
+                gig.IsLoved = unitOFWork._loveRepo.getLove(userId,id)!=null;
 
             }
             return View(gig);

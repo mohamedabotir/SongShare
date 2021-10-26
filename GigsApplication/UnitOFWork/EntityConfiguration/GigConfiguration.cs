@@ -22,6 +22,7 @@ namespace GigsApplication.UnitOFWork.EntityConfiguration
                 .IsRequired();
             Property(e => e.SongMimeType)
                 .IsRequired();
+            HasMany(e => e.loves).WithRequired(e => e.Audio).WillCascadeOnDelete(false);
         }
     }
 }

@@ -579,4 +579,6 @@ C:\SongShare\GigsApplication\obj\Debug\GigsApplication.dll
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.pdb
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.VenueToSong.resources
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.addaudioFileField.resources
+C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.addLoveFieldGig.resources
+C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.modifyLove.resources
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csproj.AssemblyReference.cache

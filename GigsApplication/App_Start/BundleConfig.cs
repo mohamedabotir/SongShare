@@ -12,7 +12,9 @@ namespace GigsApplication
                 "~/Scripts/app/Gig/gig.js",
                 "~/Scripts/app/service/followService.js",
                 "~/Scripts/app/artist/follow.js",
-                "~/Scripts/app/app.js"));
+                "~/Scripts/app/app.js",
+                "~/Scripts/app/service/loveService.js",
+                "~/Scripts/app/user/love.js"));
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/underscore-min.js",

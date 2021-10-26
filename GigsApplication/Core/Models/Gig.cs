@@ -16,16 +16,17 @@ namespace GigsApplication.Core.Models
         public string ArtistId { get; set; }
         public DateTime DateTime { get; set; }
 
-
         public string Song { get; set; }
 
         public Genre Genre { get; set; }
 
         public int GenreID { set; get; }
+        public ICollection<Love> loves { get; private set; }
         public ICollection<Attendance> Attendences { get; private set; }
         public Gig()
         {
             Attendences = new Collection<Attendance>();
+            loves = new Collection<Love>();
         }
        
         public byte[] SongData { set; get; }
