@@ -7,17 +7,19 @@
         button = $(e.target);
         var audioId = button.attr("data-audio-id");
         console.log(audioId + "id")
-        if (button.hasClass("heart"))
-            loveService.love(audioId, done, fail)
-        else
+        if (button.hasClass("heart-blast") || button.hasClass("single-heart-active"))
             loveService.deleteLove(audioId, done, fail)
+        else
+            loveService.love(audioId, done, fail)
     }
     var done = function () {
-        if (button.hasClass("single-heart-active"))
-            button.toggleClass("single-heart-active").toggleClass("heart");
-        else
-        button.toggleClass("heart-blast");
-        console.log("success love")
+        if (button.hasClass("single-heart-active")) {
+            button.toggleClass("heart").toggleClass("single-heart-active");
+        }
+        else {
+            button.toggleClass("heart-blast");
+        }
+            console.log("success love")
     }
     var fail = function () {
         alert('Something gone wrong')

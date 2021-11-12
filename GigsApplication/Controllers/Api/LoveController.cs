@@ -1,4 +1,5 @@
 ﻿using GigsApplication.Core;
+using GigsApplication.Core.Dtos;
 using GigsApplication.Core.Models;
 using Microsoft.AspNet.Identity;
 using System;
@@ -18,17 +19,23 @@ namespace GigsApplication.Controllers.Api
             this.unitOfWork = unitOfWork;
         }
         [HttpPost]
-       public IHttpActionResult loves(int id) {
-            var audioData = unitOfWork._gigRepo.GetGig(id);
+       public IHttpActionResult loves([FromBody]GigDto gig) {
+            var gigId = gig.Id;
+            var audioData = unitOfWork._gigRepo.GetGig(gigId);
             if (audioData == null)
                 return NotFound();
-            var userId = User.Identity.GetUserId();
+               var userId = User.Identity.GetUserId();
+            var audioLove = unitOfWork._loveRepo.getLove(userId, gigId);
+            if (audioLove != null)
+                return BadRequest("some thing gone error please Refresh");
             Love love = new Love{
             UserId = userId,
-            audioId = id
+            audioId = gigId
             };
             unitOfWork._loveRepo.AddLove(love);
             unitOfWork.complete();
+
+            //return Created($"/gigs/details/{gigId}", gigId);
             return Ok();
         }
         [HttpDelete]
@@ -39,7 +46,7 @@ namespace GigsApplication.Controllers.Api
                 return NotFound();
             unitOfWork._loveRepo.removeLove(audioLove);
             unitOfWork.complete();
-            return Ok();
+            return Ok(id);
         }
     }
 }
