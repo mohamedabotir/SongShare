@@ -34,7 +34,7 @@ namespace GigsApplication.Core.ViewModels
 
             get
             {
-                Expression<Func<GigsController, ActionResult>> update = (c => c.Update(this));
+                Expression<Func<GigsController, ActionResult>> update = (c => c.Update(this,null));
                 Expression<Func<GigsController, ActionResult>> create = (c => c.Create(this,null));
                 var action = (id != 0) ? update : create;
                 return (action.Body as MethodCallExpression).Method.Name;

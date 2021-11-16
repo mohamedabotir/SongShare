@@ -73,7 +73,6 @@ namespace GigsApplication.Controllers
         {
             var gig = unitOFWork._gigRepo.GetGig(id);
             if (gig == null)
-
                 return HttpNotFound();
 
             if (User.Identity.GetUserId() != gig.ArtistId)
@@ -86,7 +85,10 @@ namespace GigsApplication.Controllers
                 Date = gig.DateTime.ToString("dd MMM yyyy"),
                 Time = gig.DateTime.ToString("HH:mm"),
                 Genre = gig.GenreID,
-                Venue = gig.Song
+                Venue = gig.Song,
+                SongData =gig.SongData ,
+                SongMimeType=gig.SongMimeType
+                
 
             };
             return View("GigForm", GigView);
@@ -130,7 +132,7 @@ namespace GigsApplication.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(GigsViewModel gigsView)
+        public ActionResult Update(GigsViewModel gigsView, HttpPostedFileBase sound)
         {
             if (!ModelState.IsValid)
             {
@@ -146,8 +148,18 @@ namespace GigsApplication.Controllers
             {
                 return new HttpUnauthorizedResult();
             }
-
-            gig.Update(gigsView.Venue, gigsView.getDateTime(), gigsView.Genre);
+            if (sound != null)
+            {
+                gigsView.SongMimeType = sound.ContentType;
+                gigsView.SongData = new byte[sound.ContentLength];
+                sound.InputStream.Read(gigsView.SongData, 0, sound.ContentLength);
+            }
+            else
+            {
+                gigsView.SongMimeType = gig.SongMimeType;
+                gigsView.SongData = gig.SongData;
+            }
+            gig.Update(gigsView.Venue, gigsView.getDateTime(), gigsView.Genre, gigsView.SongData, gigsView.SongMimeType);
             unitOFWork.complete();
             return RedirectToAction("MyGig");
         }

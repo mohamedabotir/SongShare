@@ -46,13 +46,16 @@ namespace GigsApplication.Core.Models
         }
 
 
-        public void Update(string song, DateTime dateTime, int genre)
+        public void Update(string song, DateTime dateTime, int genre,byte[]audioData,string audioType)
         {
             var notification = Notification.UpdateNotification(this, DateTime, Song);
 
             Song = song;
             GenreID = genre;
             DateTime = dateTime;
+            SongData = audioData;
+            SongMimeType = audioType;
+               
             foreach (var attendee in this.Attendences.Select(e => e.Attendee))
             {
                 attendee.Notify(notification);

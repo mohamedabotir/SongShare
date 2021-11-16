@@ -27,10 +27,10 @@
 
 @if (Model.gigs.DateTime <= DateTime.Now)
 {
-
     <audio controls>
         <source src="@Url.Action("getSound",new {soundId=Model.gigs.Id })" type="audio/mpeg" />
     </audio>
+
     if (status)
     {<div class="heart-container">
     <span class="@(Model.IsLoved?"single-heart-active ":"heart ") js-toggle-love" data-audio-id="@Model.gigs.Id"></span>
