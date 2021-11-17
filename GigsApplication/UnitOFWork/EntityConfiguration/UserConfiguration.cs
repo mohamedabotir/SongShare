@@ -18,6 +18,10 @@ namespace GigsApplication.UnitOFWork.EntityConfiguration
             HasMany(e => e.Followees).
             WithRequired(e => e.Follower).
             WillCascadeOnDelete(false);
+
+            HasMany(e => e.Comments).
+                WithRequired(e => e.User).
+                WillCascadeOnDelete(true);
         }
     }
 }

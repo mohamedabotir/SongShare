@@ -35,7 +35,21 @@
     {<div class="heart-container">
     <span class="@(Model.IsLoved?"single-heart-active ":"heart ") js-toggle-love" data-audio-id="@Model.gigs.Id"></span>
 </div>
-    }
+     <div class="container">
+         <h3 class="text-left">Write You Comment</h3>
+         <div class="previous-comments"></div>
+             
+             <div class="form-group">
+                  
+                 <textarea class="comment-data form-control"></textarea>
+             </div>
+             
+                 <button class="js-toggle-comment btn btn-primary" data-audio-id="@Model.gigs.Id">Comment</button>
+              
+
+         
+     </div>  
+ }
 }
 <p>  @Model.gigs.Song @(@Model.gigs.DateTime < DateTime.Now ?"Published" :"Will Publish" ) @Model.gigs.DateTime.ToString("d MMM")  at @Model.gigs.DateTime.ToString("HH:mm")</p>
 
@@ -49,6 +63,7 @@
         $(document).ready(function () {
             followArtist.follow();
             loveAudio.loveClick();
+            Comment.clickComment();
         });
     </script>
      

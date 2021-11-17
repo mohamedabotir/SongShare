@@ -218,7 +218,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\CommentController.cs" />
     <Compile Include="Controllers\Api\LoveController.cs" />
+    <Compile Include="Core\Dtos\CommentDto.cs" />
     <Compile Include="Core\Dtos\GenreDto.cs" />
     <Compile Include="Core\Dtos\GigDto.cs" />
     <Compile Include="Controllers\Api\GigsController.cs" />
@@ -232,12 +234,15 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Core\Dtos\AttendanceDto.cs" />
     <Compile Include="Core\Dtos\FollowingDto.cs" />
+    <Compile Include="Core\Models\Comment.cs" />
     <Compile Include="Core\Models\Love.cs" />
+    <Compile Include="Core\Repositories\ICommentRepository.cs" />
     <Compile Include="Core\Repositories\ILove.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="UnitOFWork\EntityConfiguration\AttendanceConfiguration.cs" />
+    <Compile Include="UnitOFWork\EntityConfiguration\CommentConfiguration.cs" />
     <Compile Include="UnitOFWork\EntityConfiguration\FollowingConfiguration.cs" />
     <Compile Include="UnitOFWork\EntityConfiguration\GenreConfiguration.cs" />
     <Compile Include="UnitOFWork\EntityConfiguration\GigConfiguration.cs" />
@@ -368,6 +373,10 @@
     <Compile Include="UnitOFWork\Migrations\202110261407591_modifyLove.Designer.cs">
       <DependentUpon>202110261407591_modifyLove.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnitOFWork\Migrations\202111162152569_comment.cs" />
+    <Compile Include="UnitOFWork\Migrations\202111162152569_comment.Designer.cs">
+      <DependentUpon>202111162152569_comment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnitOFWork\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="UnitOFWork\ApplicationDbContext.cs" />
@@ -381,6 +390,7 @@
     <Compile Include="Core\Models\NotificationType.cs" />
     <Compile Include="Core\Models\UserNotification.cs" />
     <Compile Include="UnitOFWork\Repositories\AttendanceRepository.cs" />
+    <Compile Include="UnitOFWork\Repositories\CommentRepository.cs" />
     <Compile Include="UnitOFWork\Repositories\FollowingRepository.cs" />
     <Compile Include="UnitOFWork\Repositories\GenreRepository.cs" />
     <Compile Include="UnitOFWork\Repositories\GigRepository.cs" />
@@ -420,6 +430,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\artist\follow.js" />
+    <Content Include="Scripts\app\user\comment.js" />
     <Content Include="Scripts\app\user\love.js" />
     <Content Include="Scripts\app\service\attendanceService.js" />
     <Content Include="Scripts\app\Gig\gig.js" />
@@ -433,6 +444,7 @@
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\app\service\commentService.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\darkmode-js.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -595,6 +607,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UnitOFWork\Migrations\202110261407591_modifyLove.resx">
       <DependentUpon>202110261407591_modifyLove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202111162152569_comment.resx">
+      <DependentUpon>202111162152569_comment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

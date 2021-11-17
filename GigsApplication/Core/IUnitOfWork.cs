@@ -9,6 +9,7 @@ namespace GigsApplication.Core
         IGenreRepository _genreRepo { get; }
         IGigRepository _gigRepo { get; }
         INotificationRepository _notificationRepo { get; }
+        ICommentRepository _commentRepo { get; }
         ILove _loveRepo { get; }
         void complete();
     }

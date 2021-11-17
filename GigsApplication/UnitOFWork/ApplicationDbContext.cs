@@ -14,6 +14,8 @@ namespace GigsApplication.UnitOFWork
         public DbSet<UserNotification> UserNotifications { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Love> Loves { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -38,6 +40,7 @@ namespace GigsApplication.UnitOFWork
 
             modelBuilder.Configurations.Add(new AttendanceConfiguration());
             modelBuilder.Configurations.Add(new LoveConfiguration());
+            modelBuilder.Configurations.Add(new CommentConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

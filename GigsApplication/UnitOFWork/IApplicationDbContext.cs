@@ -12,6 +12,7 @@ namespace GigsApplication.UnitOFWork
          DbSet<Following> Followings { get; set; }
          DbSet<UserNotification> UserNotifications { get; set; }
          DbSet<Notification> Notifications { get; set; }
+         DbSet<Comment> Comments { get; set; }
          IDbSet<ApplicationUser> Users { get; set; }
     }
 }

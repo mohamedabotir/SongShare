@@ -23,10 +23,12 @@ namespace GigsApplication.Core.Models
         public int GenreID { set; get; }
         public ICollection<Love> loves { get; private set; }
         public ICollection<Attendance> Attendences { get; private set; }
+        public ICollection<Comment> Comments { get; set; }
         public Gig()
         {
             Attendences = new Collection<Attendance>();
             loves = new Collection<Love>();
+            Comments = new Collection<Comment>();
         }
        
         public byte[] SongData { set; get; }

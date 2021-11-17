@@ -15,6 +15,8 @@ namespace GigsApplication.UnitOFWork
 
         public ILove _loveRepo { get; private set; }
 
+        public ICommentRepository _commentRepo { get;private set; }
+
         public UnitOfWork(ApplicationDbContext context)
         {
             _gigRepo = new GigRepository(context);
