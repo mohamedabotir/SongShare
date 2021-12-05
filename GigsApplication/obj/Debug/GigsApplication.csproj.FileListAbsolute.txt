@@ -583,3 +583,4 @@ C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.addLoveFieldGi
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.modifyLove.resources
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.csproj.AssemblyReference.cache
 C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.comment.resources
+C:\SongShare\GigsApplication\obj\Debug\GigsApplication.Migrations.updateComment.resources

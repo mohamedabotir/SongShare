@@ -1,9 +1,5 @@
 ﻿using GigsApplication.Core.Models;
 using GigsApplication.Core.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace GigsApplication.UnitOFWork.Repositories
 {
@@ -16,7 +12,7 @@ namespace GigsApplication.UnitOFWork.Repositories
         }
         public void postComment(Comment comment)
         {
-            throw new NotImplementedException();
+            _context.Comments.Add(comment);
         }
     }
 }

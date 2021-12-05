@@ -15,7 +15,7 @@ namespace GigsApplication.UnitOFWork
 
         public ILove _loveRepo { get; private set; }
 
-        public ICommentRepository _commentRepo { get;private set; }
+        public ICommentRepository _commentRepo { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -25,6 +25,7 @@ namespace GigsApplication.UnitOFWork
             _genreRepo = new GenreRepository(context);
             _notificationRepo = new NotificationRepository(context);
             _loveRepo = new LoveRepository(context);
+            _commentRepo = new CommentRepository(context);
             _context = context;
         }
         public void complete()

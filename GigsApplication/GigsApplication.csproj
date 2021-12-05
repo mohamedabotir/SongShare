@@ -377,6 +377,10 @@
     <Compile Include="UnitOFWork\Migrations\202111162152569_comment.Designer.cs">
       <DependentUpon>202111162152569_comment.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnitOFWork\Migrations\202112052300370_updateComment.cs" />
+    <Compile Include="UnitOFWork\Migrations\202112052300370_updateComment.Designer.cs">
+      <DependentUpon>202112052300370_updateComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnitOFWork\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="UnitOFWork\ApplicationDbContext.cs" />
@@ -610,6 +614,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UnitOFWork\Migrations\202111162152569_comment.resx">
       <DependentUpon>202111162152569_comment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitOFWork\Migrations\202112052300370_updateComment.resx">
+      <DependentUpon>202112052300370_updateComment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

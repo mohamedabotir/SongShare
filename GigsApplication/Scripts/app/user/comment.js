@@ -2,7 +2,7 @@
     var click = function () {
         $(".js-toggle-comment").click(comment);
     }
-    var comment = function (e) {
+    var comment =  function (e) {
         button = $(e.target);
         var audioId = button.attr("data-audio-id");
         var message = $(".comment-data").val();
