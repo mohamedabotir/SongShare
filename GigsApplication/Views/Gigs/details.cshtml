@@ -5,6 +5,7 @@
 }
 @{
     bool status = User.Identity.IsAuthenticated;
+    
 }
 
 <h2>
@@ -44,7 +45,7 @@
                  <textarea class="comment-data form-control"></textarea>
              </div>
              
-                 <button class="js-toggle-comment btn btn-primary" data-audio-id="@Model.gigs.Id">Comment</button>
+                 <button class="js-toggle-comment btn btn-primary" data-user-name="@Model.Username" data-audio-id="@Model.gigs.Id">Comment</button>
               
 
          
@@ -57,6 +58,17 @@
 {
     <p> You will attend this gig have a nice time </p>
 }
+<h3>Comments</h3>
+<div class="comments-container">
+    @foreach (var item in Model.Comments)
+    {
+    <div class="comment">
+
+        <span id="commented-user">@item.User.name</span>
+    <p>@item.comment</p>
+    </div>
+    }
+</div>
 @section Scripts{
     <script>
        

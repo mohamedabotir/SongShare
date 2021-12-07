@@ -86,9 +86,9 @@ namespace GigsApplication.Controllers
                 Time = gig.DateTime.ToString("HH:mm"),
                 Genre = gig.GenreID,
                 Venue = gig.Song,
-                SongData =gig.SongData ,
-                SongMimeType=gig.SongMimeType
-                
+                SongData = gig.SongData,
+                SongMimeType = gig.SongMimeType
+
 
             };
             return View("GigForm", GigView);
@@ -96,7 +96,7 @@ namespace GigsApplication.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(GigsViewModel gigsView,HttpPostedFileBase sound)
+        public ActionResult Create(GigsViewModel gigsView, HttpPostedFileBase sound)
         {
 
             if (!ModelState.IsValid)
@@ -116,7 +116,7 @@ namespace GigsApplication.Controllers
                 DateTime = gigsView.getDateTime(),
                 SongMimeType = gigsView.SongMimeType,
                 SongData = gigsView.SongData
-                 };
+            };
             var artists = unitOFWork._followingRepo.GetMyFollowers(User.Identity.GetUserId());
             unitOFWork._gigRepo.Add(gig);
             var notification = Notification.CreateNotification(gig);
@@ -171,6 +171,7 @@ namespace GigsApplication.Controllers
         }
         public ActionResult details(int id)
         {
+            var userId = User.Identity.GetUserId();
             var gigDetails = unitOFWork._gigRepo.GetGigWithArtistAndGenre(id);
             if (gigDetails == null)
             {
@@ -180,17 +181,20 @@ namespace GigsApplication.Controllers
             {
                 gigs = gigDetails
             };
+            var comments = unitOFWork._commentRepo.GetComments(id).ToList();
             if (User.Identity.IsAuthenticated)
             {
-                var userId = User.Identity.GetUserId();
                 gig.IsAttending = unitOFWork._attendanceRepo.GetAttendance(id, userId) != null;
                 gig.IsFollowing = unitOFWork._followingRepo.GetFollower(userId, gigDetails.ArtistId) != null;
-                gig.IsLoved = unitOFWork._loveRepo.getLove(userId,id)!=null;
+                gig.IsLoved = unitOFWork._loveRepo.getLove(userId, id) != null;
 
+                gig.Username = unitOFWork._commentRepo.getCommentedUsername(userId);
             }
+            gig.Comments = comments;
             return View(gig);
         }
-        public FileContentResult getSound(int soundId) {
+        public FileContentResult getSound(int soundId)
+        {
             var record = unitOFWork._gigRepo.GetGig(soundId);
             if (record != null)
             {

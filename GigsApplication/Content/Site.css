@@ -205,3 +205,7 @@ ul.notifications .highlight {
     cursor: pointer;
     display: inline-block;
 }
+#commented-user {
+
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}

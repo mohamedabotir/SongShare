@@ -10,5 +10,10 @@ namespace GigsApplication.Core.ViewModels
         public bool IsFollowing { set; get; }
         public bool IsLoved { get; set; }
         public List<Comment> Comments { get; set; }
+        public string Username { get; set; }
+        public GigDetailsViewModel()
+        {
+
+        }
     }
 }
