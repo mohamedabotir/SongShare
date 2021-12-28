@@ -35,5 +35,12 @@ namespace GigsApplication.UnitOFWork.Repositories
         {
             _context.Attendances.Remove(attendance);
         }
+
+        public IEnumerable<Attendance> GetAttendances(string userId)
+        {
+            return _context.Attendances.
+                          Where(e => e.AttendeeId == userId).ToList();
+
+        }
     }
 }

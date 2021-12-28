@@ -220,6 +220,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CommentController.cs" />
     <Compile Include="Controllers\Api\LoveController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Core\Dtos\CommentDto.cs" />
     <Compile Include="Core\Dtos\GenreDto.cs" />
     <Compile Include="Core\Dtos\GigDto.cs" />
@@ -501,6 +502,7 @@
     <Content Include="Views\Gigs\Following.cshtml" />
     <Content Include="Views\Gigs\MyGig.cshtml" />
     <Content Include="Views\Gigs\details.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

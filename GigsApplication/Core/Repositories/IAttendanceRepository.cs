@@ -7,6 +7,7 @@ namespace GigsApplication.Core.Repositories
     {
         Attendance GetAttendance(int gigId, string userId);
         IEnumerable<Attendance> GetFutureAttendances(string userId);
+        IEnumerable<Attendance> GetAttendances(string userId);
         void addAttendance(Attendance attendance);
         void deleteAttendance(Attendance attendance);
 

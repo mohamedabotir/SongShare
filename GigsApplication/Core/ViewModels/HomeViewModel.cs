@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using GigsApplication.Core.Models;
+using System.Collections.Generic;
 using System.Linq;
-using GigsApplication.Core.Models;
 
 namespace GigsApplication.Core.ViewModels
 {
@@ -10,7 +10,7 @@ namespace GigsApplication.Core.ViewModels
         public string Heading { get; set; }
         public bool showActions { get; set; }
         public string Search { get; set; }
-
+        public string action { get; set; }
         public ILookup<int, Attendance> attendances { get; set; }
     }
 }

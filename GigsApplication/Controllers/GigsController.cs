@@ -48,8 +48,10 @@ namespace GigsApplication.Controllers
                 upCommingGigs = unitOFWork._gigRepo.GetGigsUserAttending(userId),
                 showActions = User.Identity.IsAuthenticated,
                 Heading = "Gigs i'am attending",
-                attendances = unitOFWork._attendanceRepo.GetFutureAttendances(userId)
-              .ToLookup(e => e.GigId)
+                attendances = unitOFWork._attendanceRepo.GetAttendances(userId)
+              .ToLookup(e => e.GigId),
+                action = "notified"
+
             };
             return View("Gigs", viewModel);
         }

@@ -8,7 +8,7 @@
 {
     <div class="form-group">
         <div class="input-group" id="searchTerm">
-            @Html.TextBoxFor(e => e.Search, new { @class = "form-control", placeholder = "Search by artist ,genre ..." })
+            @Html.TextBoxFor(e => e.Search, new { @class = "form-control", placeholder = "Search by user ,genre ,audio ..." })
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-search"></i>
             </span>
@@ -47,12 +47,21 @@
                 <span class="publisher">
                     By @item.Artist.name
                 </span>
-                @if (Model.showActions && !item.IsCanceled &&item.DateTime>DateTime.Now)
-                        {
-                            var attendanceStatus = Model.attendances.Contains(item.Id);
-            <button data-gig-id="@item.Id" class="btn @(attendanceStatus?"btn-info" : "btn-default")   btn-sm pull-right js-toggle-attendance">
-                @(attendanceStatus?"Notified":"GetNotification+")
-            </button>
+                @if (Model.showActions && !item.IsCanceled && item.DateTime > DateTime.Now)
+                {
+                    var attendanceStatus = Model.attendances.Contains(item.Id);
+                    <button data-gig-id="@item.Id" class="btn @(attendanceStatus?"btn-info" : "btn-default")   btn-sm pull-right js-toggle-attendance">
+                        @(attendanceStatus?"Notified":"GetNotification+")
+                    </button>
+                }
+                @if (Model.showActions && !item.IsCanceled)
+                {
+                    var attendanceStatus = Model.attendances.Contains(item.Id);
+                    if(Model.action!= "notified") { 
+                    <button data-gig-id="@item.Id" class="btn @(attendanceStatus?"btn-info" : "btn-default")   btn-sm pull-right js-toggle-attendance">
+                        @(attendanceStatus?"Notified":"GetNotification+")
+                    </button>
+                    }
                 }
             </div>
         </li>
