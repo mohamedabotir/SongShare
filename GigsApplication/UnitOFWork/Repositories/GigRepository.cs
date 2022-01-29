@@ -45,10 +45,10 @@ namespace GigsApplication.UnitOFWork.Repositories
             return
                 _context.Gigs.
                 Where(e => e.ArtistId == artistId &&
-                e.DateTime > System.DateTime.Now &&
+
                 !e.IsCanceled).
                 Include(e => e.Genre).ToList();
-                ;
+            ;
         }
 
         public IEnumerable<Gig> GetAllAvailableGigsWithArtistAndGenre(bool isFuture)
@@ -57,9 +57,9 @@ namespace GigsApplication.UnitOFWork.Repositories
                     Include(e => e.Artist)
                     .Include(e => e.Genre);
             if (isFuture)
-            return
-                
-                    query.Where(g => g.DateTime >= DateTime.Now && !g.IsCanceled);
+                return
+
+                        query.Where(g => g.DateTime >= DateTime.Now && !g.IsCanceled);
             else
                 return
 

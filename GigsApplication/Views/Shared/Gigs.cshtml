@@ -45,7 +45,7 @@
                     @item.Genre.Name
                 </span>
                 <span class="publisher">
-                    By @item.Artist.name
+                    By <a href="/account/profile/@item.ArtistId">@item.Artist.name</a>
                 </span>
                 @if (Model.showActions && !item.IsCanceled && item.DateTime > DateTime.Now)
                 {

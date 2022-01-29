@@ -4,6 +4,7 @@ using System.Web.Http;
 
 namespace GigsApplication.Controllers.Api
 {
+    [Authorize]
     public class GigsController : ApiController
     {
         private IUnitOfWork unitOfWork;

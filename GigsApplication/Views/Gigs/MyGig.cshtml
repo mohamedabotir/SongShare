@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<GigsApplication.Core.Models.Gig>
 @{
-    ViewBag.Title = "MyGig";
+    ViewBag.Title = "SharedAudio";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>My Upcomming Gigs</h2>
+<h2>Audio I'am Sharing</h2>
 <ul class="gigs space-between">
      
 
@@ -22,7 +22,7 @@
         <div class="details">
 
             <span class="artist">
-                @item.Song
+                <a href="/gigs/details/@item.Id">@item.Song</a>
             </span>
 
             <span class="genre">
