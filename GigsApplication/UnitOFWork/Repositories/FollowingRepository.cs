@@ -25,14 +25,14 @@ namespace GigsApplication.UnitOFWork.Repositories
             return
                  _context.Followings.
                 Include(e => e.Followee).
-                Include(e => e.Follower).
+               
                 Where(e => e.FollowerId == artistId);
         }
         public IEnumerable<Following> GetMyFollowers(string artistId)
         {
             return
                 _context.Followings.
-               Include(e => e.Followee).
+               
                Include(e => e.Follower).
                Where(e => e.FolloweeId == artistId);
         }

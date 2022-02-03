@@ -1,0 +1,11 @@
+﻿@model GigsApplication.Core.ViewModels.ProfileViewModels
+@{
+    ViewBag.Title = "Profile";
+}
+<h2 class="text-center">@Model.username</h2>
+
+
+@foreach (var item in Model.Follower)
+{
+    <p>@item.Follower.name</p>
+}

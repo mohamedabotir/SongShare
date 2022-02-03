@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using GigsApplication.Core;
+using GigsApplication.Core.Models;
+using GigsApplication.Core.Repositories;
+using GigsApplication.Core.ViewModels;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using GigsApplication.Core.Models;
-using GigsApplication.Core.ViewModels;
 
 namespace GigsApplication.Controllers
 {
@@ -15,15 +18,18 @@ namespace GigsApplication.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private  IUnitOfWork unit; 
 
-        public AccountController()
+        public AccountController(IUnitOfWork unit)
         {
+            this.unit = unit;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+           
         }
 
         public ApplicationSignInManager SignInManager
@@ -78,10 +84,13 @@ namespace GigsApplication.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
+
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
@@ -114,17 +123,19 @@ namespace GigsApplication.Controllers
                 return View(model);
             }
 
-            // The following code protects for brute force attacks against the two factor codes. 
-            // If a user enters incorrect codes for a specified amount of time then the user account 
-            // will be locked out for a specified amount of time. 
+            // The following code protects for brute force attacks against the two factor codes.
+            // If a user enters incorrect codes for a specified amount of time then the user account
+            // will be locked out for a specified amount of time.
             // You can configure the account lockout settings in IdentityConfig
             var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(model.ReturnUrl);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
+
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid code.");
@@ -215,7 +226,7 @@ namespace GigsApplication.Controllers
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
                 // return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
@@ -337,10 +348,13 @@ namespace GigsApplication.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
+
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
+
                 case SignInStatus.Failure:
                 default:
                     // If the user does not have an account, then prompt the user to create an account
@@ -425,8 +439,31 @@ namespace GigsApplication.Controllers
 
             base.Dispose(disposing);
         }
+        [AllowAnonymous]
+        public ActionResult Profile(string Id)
+        {
+            var user = UserManager.FindById(Id);
+            if (user == null)
+            { 
+            RedirectToAction("Error", "NotFound");
+            }
+            var followees = unit._followingRepo.GetMyFollowing(Id);
+            
+            var followers = unit._followingRepo.GetMyFollowers(Id);
+            IEnumerable<Gig> Audios =unit._gigRepo.GetMyGigsWithGenreByArtist(Id);
+            var UserInformation = new ProfileViewModels
+            {
+                username = user.UserName,
+                Followee = followees,
+                Follower = followers,
+                Audios = Audios
+
+            };
+            return View(UserInformation);
+        }
 
         #region Helpers
+
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -483,6 +520,7 @@ namespace GigsApplication.Controllers
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }
-        #endregion
+
+        #endregion Helpers
     }
 }
