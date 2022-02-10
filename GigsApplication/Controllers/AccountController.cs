@@ -456,7 +456,9 @@ namespace GigsApplication.Controllers
                 username = user.UserName,
                 Followee = followees,
                 Follower = followers,
-                Audios = Audios
+                Audios = Audios,
+                FolloweeCount = followees.Count(),
+                FollowerCount = followers.Count(),
 
             };
             return View(UserInformation);

@@ -209,3 +209,9 @@ ul.notifications .highlight {
 
 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
+
+
+.followBox {
+    left: 30%;
+    position: relative;
+}

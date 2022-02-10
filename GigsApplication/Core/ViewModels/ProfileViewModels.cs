@@ -9,5 +9,8 @@ namespace GigsApplication.Core.ViewModels
         public IEnumerable<Following> Follower { get; set; }
         public IEnumerable<Following> Followee { get; set; }
         public IEnumerable<Gig> Audios { get; set; }
+        public int FolloweeCount { get; set; }
+        public int FollowerCount { get; set; }
+
     }
 }

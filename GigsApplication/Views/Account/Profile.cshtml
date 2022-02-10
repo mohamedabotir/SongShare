@@ -3,9 +3,42 @@
     ViewBag.Title = "Profile";
 }
 <h2 class="text-center">@Model.username</h2>
+<div class="followBox">
+    <div class="row">
+        <div class="col-lg-3">
 
+            <p>
 
-@foreach (var item in Model.Follower)
-{
-    <p>@item.Follower.name</p>
-}
+                <button class="btn btn-outline-danger" type="button" data-toggle="collapse" data-target="#follower" aria-expanded="false" aria-controls="follower">
+                    <span class="badge badge-light">@Model.FollowerCount</span> Follower
+                </button>
+            </p>
+            <div class="collapse" id="follower">
+                <div class="card card-body col-sm-2">
+                    @foreach (var item in Model.Follower)
+                    {
+                        <a href="/account/profile/@item.Follower.Id"><p>@item.Follower.name</p></a>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <p>
+
+                <button class="btn btn-outline-danger" type="button" data-toggle="collapse" data-target="#followee" aria-expanded="false" aria-controls="followee">
+                    <span class="badge badge-light">@Model.FolloweeCount</span> Followee
+                </button>
+            </p>
+            <div class="collapse" id="followee">
+                <div class="card card-body col-sm-2">
+                    @foreach (var item in Model.Followee)
+                    {
+                        <a href="/account/profile/@item.Followee.Id"><p>@item.Followee.name</p></a>
+                    }
+
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
