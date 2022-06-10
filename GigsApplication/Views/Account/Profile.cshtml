@@ -13,8 +13,8 @@
                     <span class="badge badge-light">@Model.FollowerCount</span> Follower
                 </button>
             </p>
-            <div class="collapse" id="follower">
-                <div class="card card-body col-sm-2">
+            <div class="collapse follower-followee" id="follower">
+                <div class="card card-body col-sm-2 follower-followee">
                     @foreach (var item in Model.Follower)
                     {
                         <a href="/account/profile/@item.Follower.Id"><p>@item.Follower.name</p></a>
@@ -40,43 +40,45 @@
                 </div>
             </div>
         </div>
+       
+    </div>
+    <div class="user-audio">
         @foreach (var item in Model.Audios)
         {
             <ul id="gigs" class="gigs space-between">
 
 
-                
-                    <li>
-                        <div class="date">
-                            <div class="month">
-                                @item.DateTime.ToString("MMM")
-                            </div>
-                            <div class="day">
-                                @item.DateTime.ToString("d ")
-                            </div>
+
+                <li>
+                    <div class="date">
+                        <div class="month">
+                            @item.DateTime.ToString("MMM")
                         </div>
-                        <div class="details">
-
-                            <span class="artist">
-                                <a href="/gigs/details/@item.Id">@item.Song</a>
-                                @if (item.IsCanceled)
-                                {
-                                    <span class="label label-warning">Canceled</span>
-                                }
-
-                            </span>
-
-                            <span class="genre">
-                                @item.Genre.Name
-                            </span>
-                            
-                           
+                        <div class="day">
+                            @item.DateTime.ToString("d ")
                         </div>
-                    </li>
-                
+                    </div>
+                    <div class="details">
+
+                        <span class="artist">
+                            <a href="/gigs/details/@item.Id">@item.Song</a>
+                            @if (item.IsCanceled)
+                            {
+                                <span class="label label-warning">Canceled</span>
+                            }
+
+                        </span>
+
+                        <span class="genre">
+                            @item.Genre.Name
+                        </span>
+
+
+                    </div>
+                </li>
+
             </ul>
 
         }
-
     </div>
     </div>

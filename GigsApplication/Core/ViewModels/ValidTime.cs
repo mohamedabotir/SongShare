@@ -14,7 +14,7 @@ namespace GigsApplication.Core.ViewModels
                 CultureInfo.CurrentCulture,
                 DateTimeStyles.None,
                 out datetime);
-            return (isValid && datetime > DateTime.Now);
+            return (isValid && datetime > DateTime.Now ||value==null);
 
         }
     }

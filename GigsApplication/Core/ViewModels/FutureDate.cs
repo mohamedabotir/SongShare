@@ -10,11 +10,11 @@ namespace GigsApplication.Core.ViewModels
         {
             DateTime datetime;
             var isValid = DateTime.TryParseExact(Convert.ToString(value),
-                 "d MMM yyyy",
+                 "dd MMM yyyy",
                 CultureInfo.CurrentCulture,
                 DateTimeStyles.None,
                 out datetime);
-            return (isValid && datetime > DateTime.Now);
+            return (isValid && DateTime.Parse(datetime.ToShortDateString()) >= DateTime.Parse(DateTime.Now.ToShortDateString()) || value == null);
 
         }
     }

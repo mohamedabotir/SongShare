@@ -54,7 +54,7 @@
                         @(attendanceStatus?"Notified":"GetNotification+")
                     </button>
                 }
-                @if (Model.showActions && !item.IsCanceled)
+                @if (Model.showActions && !item.IsCanceled && item.DateTime < DateTime.Now)
                 {
                     var attendanceStatus = Model.attendances.Contains(item.Id);
                     if(Model.action!= "notified") { 

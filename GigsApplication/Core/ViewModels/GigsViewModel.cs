@@ -16,16 +16,18 @@ namespace GigsApplication.Core.ViewModels
         public ApplicationUser Artist { set; get; }
         [Required]
         public string Venue { set; get; }
-        [Required]
+        
         [FutureDate]
         public string Date { get; set; }
-        [Required]
+        
         [ValidTime]
         public string Time { get; set; }
         [Required]
         public int Genre { set; get; }
+         
         [Display(Name = "SongFile")]
         [DataType(DataType.Upload)]
+        
         public byte[] SongData { set; get; }
         [HiddenInput(DisplayValue = false)]
         public string SongMimeType { set; get; }
@@ -45,6 +47,8 @@ namespace GigsApplication.Core.ViewModels
 
         public DateTime getDateTime()
         {
+            if (this.Date == null || this.Time == null)
+                return DateTime.Now;
 
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));
 

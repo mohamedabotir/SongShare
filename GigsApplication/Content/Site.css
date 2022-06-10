@@ -215,3 +215,12 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
     left: 30%;
     position: relative;
 }
+
+.follower-followee {
+    margin-bottom: 1em; 
+}
+.user-audio {
+    position: relative;
+    margin-top: 5em;
+    right: 1px;
+}
