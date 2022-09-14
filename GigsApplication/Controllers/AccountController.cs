@@ -440,9 +440,12 @@ namespace GigsApplication.Controllers
             base.Dispose(disposing);
         }
         [AllowAnonymous]
-        public ActionResult Profile(string Id)
+        public ActionResult Profile(string Id="")
         {
-            var user = UserManager.FindById(Id);
+            var userId=Id;
+            if(userId.Length == 0)
+             userId = HttpContext.User.Identity.GetUserId();
+            var user = UserManager.FindById(userId);
             if (user == null)
             { 
             RedirectToAction("Error", "NotFound");

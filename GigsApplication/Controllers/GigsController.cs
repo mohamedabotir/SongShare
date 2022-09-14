@@ -47,7 +47,7 @@ namespace GigsApplication.Controllers
             {
                 upCommingGigs = unitOFWork._gigRepo.GetGigsUserAttending(userId),
                 showActions = User.Identity.IsAuthenticated,
-                Heading = "Gigs i'am attending",
+                Heading = "Audios i am interested in",
                 attendances = unitOFWork._attendanceRepo.GetAttendances(userId)
               .ToLookup(e => e.GigId),
                 action = "notified"
